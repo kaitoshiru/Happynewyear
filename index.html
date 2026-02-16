@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thiệp Chúc Tết</title>
+
+  <link rel="icon" href="img/iconlixi.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <div class="screen">
+
+    <h1 class="title">🧧 Hãy chọn một phong bì 🧧</h1>
+
+    <div class="envelope-list">
+
+      <div class="envelope" data-id="0">
+        <div class="envelope-inner">
+          <div class="envelope-inner-1"></div>
+          <img src="img/lixi5.jpg" alt="Lì xì 1">
+        </div>
+      </div>
+
+      <div class="envelope" data-id="1">
+        <div class="envelope-inner">
+          <div class="envelope-inner-1"></div>
+          <img src="img/lixi10.jpg" alt="Lì xì 2">
+        </div>
+      </div>
+
+      <div class="envelope" data-id="2">
+        <div class="envelope-inner">
+          <div class="envelope-inner-1"></div>
+          <img src="img/lixi7.jpg" alt="Lì xì 3">
+        </div>
+      </div>
+
+      <div class="envelope" data-id="3">
+        <div class="envelope-inner">
+          <div class="envelope-inner-2"></div>
+          <img src="img/lixi8.jpg" alt="Lì xì 4">
+        </div>
+      </div>
+
+      <div class="envelope" data-id="4">
+        <div class="envelope-inner">
+          <div class="envelope-inner-2"></div>
+          <img src="img/lixi6.jpg" alt="Lì xì 5">
+        </div>
+      </div>
+
+    </div>
+
+    <p class="hint">Chạm vào một phong bì để mở!</p>
+
+    <!-- Lời chúc -->
+    <div class="card-content" style="display: none;"></div>
+
+  </div>
+
+  <!-- FIREWORK OVERLAY -->
+<div id="firework-screen" class="firework-screen">
+  <canvas id="firework-canvas"></canvas>
+  <h2 class="big-text">🎆 Chúc Mừng Năm Mới 🎆</h2>
+</div>
+
+  <audio id="tet-music" src="audio/tet.mp3"></audio>
+  
+  <script src="js/script.js"></script>
+
+</body>
+</html>

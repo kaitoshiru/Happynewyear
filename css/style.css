@@ -1,0 +1,223 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #b31217, #e52d27);
+  color: #fff;
+}
+
+/* ================= SCREEN ================= */
+.screen {
+  min-height: 100dvh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ================= TITLE ================= */
+.title {
+  font-size: clamp(20px, 5vw, 40px);
+  text-align: center;
+}
+
+/* ================= ENVELOPE SIZE ================= */
+:root {
+  --envelope-width: clamp(90px, 18vw, 210px);
+  --envelope-height: calc(var(--envelope-width) * 1.38);
+}
+
+/* ================= ENVELOPE LIST ================= */
+.envelope-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 28px);
+}
+
+/* ================= ENVELOPE ================= */
+.envelope {
+  width: var(--envelope-width);
+  height: var(--envelope-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  border-radius: 26px;
+
+  box-shadow:
+    0 15px 30px rgba(0,0,0,0.35),
+    inset 0 2px 6px rgba(255,255,255,0.35);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* ================= SWING ANIMATION ================= */
+.envelope-inner {
+  width: 94%;
+  height: 94%;
+  animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(2deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ================= IMAGE ================= */
+.envelope img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* ================= HINT ================= */
+.hint {
+  font-size: clamp(12px, 2.5vw, 14px);
+  opacity: 0.9;
+  text-align: center;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 767px) {
+
+  .envelope {
+    flex: 0 0 calc(33.333% - 10px);
+    max-width: 120px;
+    aspect-ratio: 1 / 1.38;
+  }
+
+  /* 2 bao dưới */
+  .envelope:nth-child(n+4) {
+    flex: 0 0 calc(50% - 10px);
+    max-width: 140px;
+  }
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .envelope {
+    flex: 0 0 calc(33.333% - 16px);
+    max-width: 200px;
+    aspect-ratio: 1 / 1.38;
+  }
+
+  .envelope:nth-child(n+4) {
+    flex: 0 0 calc(50% - 16px);
+    max-width: 220px;
+  }
+}
+
+/* ================= FIREWORK SCREEN ================= */
+.firework-screen {
+  position: fixed;
+  inset: 0;
+
+  background: radial-gradient(circle at center,
+    #1a0000 0%,
+    #2b0000 40%,
+    #000000 100%);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* ================= BIG TEXT ================= */
+.big-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(0.6);
+  width: 85%;
+  max-width: 900px;
+
+  font-size: clamp(22px, 5vw, 48px);
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.4;
+
+  color: gold;
+  opacity: 0;
+
+  text-shadow:
+    0 0 10px gold,
+    0 0 20px orange,
+    0 0 40px red,
+    0 0 80px rgba(255, 0, 0, 0.6);
+
+  transition:
+    opacity 1s ease,
+    transform 1.2s cubic-bezier(.17,.67,.32,1.4);
+
+  z-index: 2;
+}
+
+.big-text.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+/* Dòng cuối nhỏ hơn */
+.final-text {
+  font-size: 0.75em;
+  letter-spacing: 3px;
+}
+
+/* ================= GLOW ================= */
+@keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 0 10px gold,
+      0 0 20px orange,
+      0 0 40px red;
+  }
+  100% {
+    text-shadow:
+      0 0 20px gold,
+      0 0 40px orange,
+      0 0 80px red;
+  }
+}
+
+/* ================= FADE UP ================= */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
