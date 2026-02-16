@@ -51,7 +51,7 @@ function createFirework() {
 }
 
 function explode(x, y) {
-  const count = 120;
+  const count = 70;
   const hue = Math.random() * 360;
 
   for (let i = 0; i < count; i++) {
@@ -114,7 +114,7 @@ function startSequence(wishText, musicSrc) {
   music.play();
 
   animate();
-  fireworkInterval = setInterval(createFirework, 900);
+  fireworkInterval = setInterval(createFirework, 1200);
 
   // 🔥 tách theo 2 khoảng trắng
   const parts = wishText.split("  ").map(p => p.trim());
@@ -159,3 +159,4 @@ envelopes.forEach(env => {
     startSequence(selected.wish, selected.music);
   });
 });
+
